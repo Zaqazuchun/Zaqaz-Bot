@@ -1,18 +1,23 @@
 from aiogram import Router, F
-from aiogram.types import Message
+from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from config import ADMIN_ID
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 router = Router()
 
+def register(dp):
+    dp.include_router(router)
+
 
 def admin_menu():
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text="📦 Mahsulotlar")],
-            [KeyboardButton(text="🧾 Buyurtmalar")]
-        ],
-        resize_keyboard=True
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(
+                    text="📦 Mahsulot qo‘shish",
+                    callback_data="add_product"
+                )
+            ]
+        ]
     )
 
 
@@ -21,4 +26,4 @@ async def start_handler(message: Message):
     if message.from_user.id == ADMIN_ID:
         await message.answer("👨‍💼 Admin panel", reply_markup=admin_menu())
     else:
-        await message.answer("🍔 Xush kelibsiz!\nMini App orqali buyurtma bering.")
+        await message.answer("🍔 Xush kelibsiz!")
