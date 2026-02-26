@@ -8,7 +8,6 @@ from database import init_db
 
 # handlers import
 from handlers import admin, products, orders
-from handlers import admin, products, orders
 
 
 bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
