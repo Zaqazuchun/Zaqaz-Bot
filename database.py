@@ -26,3 +26,22 @@ async def init_db():
             created_at TIMESTAMP DEFAULT NOW()
         );
         """)
+
+        await conn.execute("""
+        CREATE TABLE IF NOT EXISTS products (
+            id SERIAL PRIMARY KEY,
+            name TEXT NOT NULL,
+            price INTEGER NOT NULL,
+            active BOOLEAN DEFAULT TRUE
+        );
+        """)
+
+        await conn.execute("""
+        CREATE TABLE IF NOT EXISTS orders (
+            id SERIAL PRIMARY KEY,
+            user_id BIGINT,
+            total INTEGER,
+            status TEXT,
+            created_at TIMESTAMP DEFAULT NOW()
+        );
+        """)
