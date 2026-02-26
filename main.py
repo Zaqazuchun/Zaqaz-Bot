@@ -18,7 +18,6 @@ dp = Dispatcher()
 admin.register(dp)
 products.register(dp)
 orders.register(dp)
-products.register(dp)
 
 async def main():
     await init_db()
