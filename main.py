@@ -11,8 +11,6 @@ import handlers.products
 import handlers.orders
 
 bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
-
-# 🔥 FSM STORAGE QO‘SHILDI
 dp = Dispatcher(storage=MemoryStorage())
 
 handlers.admin.register(dp)
