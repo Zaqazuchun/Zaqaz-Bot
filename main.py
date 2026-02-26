@@ -10,6 +10,8 @@ from database import init_db
 from handlers.admin import router as admin_router
 from handlers.products import router as products_router
 from handlers.orders import router as orders_router
+from handlers.products_list import router as products_list_router
+
 
 bot = Bot(
     token=BOT_TOKEN,
@@ -21,6 +23,7 @@ dp = Dispatcher(storage=MemoryStorage())
 dp.include_router(admin_router)
 dp.include_router(products_router)
 dp.include_router(orders_router)
+dp.include_router(products_list_router)
 
 async def main():
     await init_db()
