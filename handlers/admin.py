@@ -21,4 +21,4 @@ def register(dp):
         if message.from_user.id == ADMIN_ID:
             await message.answer("👨‍💼 Admin panel", reply_markup=admin_menu())
         else:
-            await message.answer("🍔 Xush kelibsiz!\nMini App orqali buyurtma bering.")
+            await message.answer("🍔 Xush kelibsiz!\nMini App orqali buyurtma bering.")1
