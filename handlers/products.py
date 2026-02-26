@@ -2,7 +2,7 @@ from aiogram import Router, F
 from aiogram.types import CallbackQuery, Message
 from aiogram.fsm.context import FSMContext
 from config import ADMIN_ID
-from database import pool
+import database
 from states import AddProduct
 
 router = Router()
@@ -32,7 +32,7 @@ async def get_price(message: Message, state: FSMContext):
 
     data = await state.get_data()
 
-    async with pool.acquire() as conn:
+    async with database.pool.acquire() as conn:
         await conn.execute(
             "INSERT INTO products (name, price) VALUES ($1, $2)",
             data["name"],
