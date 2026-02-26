@@ -4,9 +4,6 @@ from config import ADMIN_ID
 
 router = Router()
 
-def register(dp):
-    dp.include_router(router)
-
 def admin_menu():
     return InlineKeyboardMarkup(
         inline_keyboard=[
