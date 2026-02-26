@@ -8,10 +8,10 @@ def admin_menu():
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(
-                    text="📦 Mahsulot qo‘shish",
-                    callback_data="add_product"
-                )
+                InlineKeyboardButton(text="📦 Mahsulot qo‘shish", callback_data="add_product")
+            ],
+            [
+                InlineKeyboardButton(text="📋 Mahsulotlar", callback_data="list_products")
             ]
         ]
     )
