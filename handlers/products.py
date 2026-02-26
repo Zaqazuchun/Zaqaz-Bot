@@ -7,10 +7,6 @@ from states import AddProduct
 
 router = Router()
 
-def register(dp):
-    dp.include_router(router)
-
-
 @router.callback_query(F.data == "add_product")
 async def add_product_start(callback: CallbackQuery, state: FSMContext):
     if callback.from_user.id != ADMIN_ID:
