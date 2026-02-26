@@ -26,11 +26,20 @@ async def get_name(message: Message, state: FSMContext):
 
 @router.message(AddProduct.price)
 async def get_price(message: Message, state: FSMContext):
+
+    print("🔥 PRICE HANDLER ISHLADI")
+
     if not message.text.isdigit():
         await message.answer("❗ Faqat raqam kiriting")
         return
 
     data = await state.get_data()
+
+    print("DATA:", data)
+
+    if database.pool is None:
+        await message.answer("❌ Database ulanmagan")
+        return
 
     async with database.pool.acquire() as conn:
         await conn.execute(
