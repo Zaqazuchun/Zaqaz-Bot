@@ -7,7 +7,6 @@ router = Router()
 def register(dp):
     dp.include_router(router)
 
-
 def admin_menu():
     return InlineKeyboardMarkup(
         inline_keyboard=[
@@ -19,7 +18,6 @@ def admin_menu():
             ]
         ]
     )
-
 
 @router.message(F.text == "/start")
 async def start_handler(message: Message):
